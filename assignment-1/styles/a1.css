@@ -1,0 +1,15 @@
+#entries{
+	font-family: sans-serif;
+	font-size: 3em;
+	color: red;
+}
+#sum{
+	font-family: sans-serif;
+	font-size: 3em;
+	color: orange;
+}
+#average{
+	font-family: sans-serif;
+	font-size: 3em;
+	color: green;
+}
