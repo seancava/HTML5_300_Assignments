@@ -56,7 +56,7 @@ function resetForm(){
 	location.reload();
 };
 
-//)end document ready
+//)end document ready//
 
 
 
