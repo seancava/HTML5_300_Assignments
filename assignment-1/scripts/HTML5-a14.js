@@ -3,14 +3,15 @@ $(document).ready(init);
 	function init(){
 	var submitButton = $("#submitEntry");
 	submitButton.click(addInput);
-
+var userEntries = [];
+$("#entries").html(userEntries.length);
 	function addInput(evt){
 		//event.preventDefault();
 		var userEntry = parseInt($("#userInput").text(), 10);
-		var userEntries = [];
+		
 		
 		userEntries.push(userEntry);
-		$("#entries").html(userEntries.length);
+		
 	};
 
 //var userEntry = parseInt($("#userInput").text(), 10);

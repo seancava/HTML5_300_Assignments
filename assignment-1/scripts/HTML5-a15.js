@@ -13,7 +13,7 @@ $(document).ready(init);
 			var userEntry = parseInt($("#userInput").text(), 10);
 			userEntries.push(userEntry);
 			//return userEntries.length;
-			$("#entries").html(userInput);
+			$("#entries").html(userEntries);
 			
 		};
 		
