@@ -6,20 +6,21 @@ $(document).ready(init);
 		
 		
 		
-		var userInput = function addInput(evt){
+		//var userInput = function addInput(evt){
+			function addInput(evt){
 			var userEntries = [];
 			//event.preventDefault();//prevents page reload on form submit
 			var userEntry = parseInt($("#userInput").text(), 10);
 			userEntries.push(userEntry);
-			return userEntries.length;
+			//return userEntries.length;
+			$("#entries").html(userInput);
 			
 		};
-		$("#entries").html(userInput);
+		
 		
 	};
 	
 	
-
 //var userEntry = parseInt($("#userInput").text(), 10);
 
 

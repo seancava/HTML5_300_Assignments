@@ -1,18 +1,19 @@
-var submitButton = $("#submitEntry");
-		submitButton.click(addInput);
+$(document).ready(init);
+
+	function init(){
+	var submitButton = $("#submitEntry");
+	submitButton.click(addInput);
 
 	function addInput(evt){
-		
 		//event.preventDefault();
-		
-		var userEntries = [];
 		var userEntry = parseInt($("#userInput").text(), 10);
+		var userEntries = [];
+		
 		userEntries.push(userEntry);
-		$("#entries").html(userEntries.length);//sends the number of indexes in the array to the html li
+		$("#entries").html(userEntries.length);
 	};
 
 //var userEntry = parseInt($("#userInput").text(), 10);
-
 
 
 
@@ -59,7 +60,7 @@ function resetForm(){
 	location.reload();
 };
 
-
+};//end init
 
 
 
