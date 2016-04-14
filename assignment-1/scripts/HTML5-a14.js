@@ -13,6 +13,7 @@ $(document).ready(init);
 		var userInput = $("#userInput");
 		var userEntry = parseInt(userInput.text(), 10);
 		var userEntriesLength = userEntries.length;
+		var submitButton = $("#submitEntry");
 		$("#entries").html(userEntriesLength);
 
 		var total = 0; 
@@ -23,14 +24,15 @@ $(document).ready(init);
 			return parseInt(total, 10);
 			};
 
-		var submitButton = $("#submitEntry");
+		
 		submitButton.on("click", (userEntries.push(userEntry)));	
 
 		$("#sum").html(sum);
 
 		var average = function(){
-			(sum / userEntriesLength);
-			average = parseInt(average, 10);
+			var avCalc = sum / userEntriesLength;
+			var av = parseInt(avCalc, 10);
+			return av;
 			};
 		$("#average").html(average);	
 //var userEntry = parseInt($("#userInput").text(), 10);
