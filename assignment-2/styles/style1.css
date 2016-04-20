@@ -1,0 +1,10 @@
+#listdisplay {
+	background-color: blue;
+  height: 3em;
+}
+
+#adddisplay {
+	background-color: red;
+/*  display: none;*/
+  height: 3em;
+}
