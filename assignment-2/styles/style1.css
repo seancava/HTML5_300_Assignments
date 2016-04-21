@@ -1,11 +1,11 @@
 #listdisplay {
   background-color: blue;
-  height: 3em;
+  min-height: 3em;
 }
 
 #adddisplay {
   background-color: red;
-  height: 3em;
+  min-height: 3em;
 }
 .show{
   display: inline-block;
