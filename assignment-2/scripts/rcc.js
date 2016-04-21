@@ -21,7 +21,7 @@ function init(){
   var addProp0 = $('#artist').val();
   var addProp1 = $('#title').val();
   var addProp2 = $('#label').val();
-  var addRecord = $('#catalogue').append('<tr><td>' + addProp0 + '</td><td>' + addProp1 + '</td><td>' + addProp2 + '</td></tr>');
+  var addRecord = $('#catalogue').append('<tr><td class="addprop">' + addProp0 + '</td><td class="addprop">' + addProp1 + '</td><td class="addprop">' + addProp2 + '</td></tr>');
   var recordProps = [];
   recordProps.push(addProp0);
   recordProps.push(addProp1);
