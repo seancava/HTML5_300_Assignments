@@ -1,61 +1,42 @@
 $(document).ready(init);
-function init(){
 
-var submitButton = $("#submitEntry");
-submitButton.on("click", addInput);
+function init() {
 
-var userNumberEntries = [];
-var userStringEntries = [];
+  var submitButton = $("#submitEntry");
+  submitButton.on("click", addInput);
 
-function addInput(evt){
-evt.preventDefault();
-//$("form").reset();
-var userEntry = $("#userInput").val();
-parseInt(userEntry, 10);
-if (isNaN(userEntry)){
-userStringEntries.push(userEntry);
-}
-else{
+  var userNumberEntries = [];
+  var userStringEntries = [];
 
-userNumberEntries.push(userEntry);
-}
+  function addInput(evt) {
+    evt.preventDefault();
+    //$("form").reset();
+    var userEntry = $("#userInput").val();
+    parseInt(userEntry, 10);
+    if (isNaN(userEntry)) {
+      userStringEntries.push(userEntry);
+    } else {
 
-var sum = 0; 
-for (var i = 0; i < userNumberEntries.length; i++) {
-sum += userNumberEntries[i] << 0;
-}
+      userNumberEntries.push(userEntry);
+    }
 
-$("#totalNumbers").html
-("The total number of numbers entered is: " + userNumberEntries.length);
-$("#sumNumbers").html
-("The sum of numbers entered is: " + sum);
-$("#averageNumbers").html
-("The average of numbers entered is: " + sum / (userStringEntries.length));
-$("#totalStrings").html
-("The total number of strings entered is: " + userStringEntries.length);
-$("#concatStrings").html("The strings concatenated is: " + userStringEntries.join(' '));
+    var sum = 0;
+    for (var i = 0; i < userNumberEntries.length; i++) {
+      sum += userNumberEntries[i] << 0;
+    }
 
-};//end addInput
+    $("#totalNumbers").html("The total number of numbers entered is: " + userNumberEntries.length);
+    $("#sumNumbers").html("The sum of numbers entered is: " + sum);
+    $("#averageNumbers").html("The average of numbers entered is: " + sum / (userStringEntries.length));
+    $("#totalStrings").html("The total number of strings entered is: " + userStringEntries.length);
+    $("#concatStrings").html("The strings concatenated is: " + userStringEntries.join(' '));
 
-var resetButton = $("#reset");
-resetButton.on("click", resetForm);
+  }; //end addInput
 
-function resetForm(){
-location.reload();
-};
-}//end init
+  var resetButton = $("#reset");
+  resetButton.on("click", resetForm);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  function resetForm() {
+    location.reload();
+  };
+} //end init
