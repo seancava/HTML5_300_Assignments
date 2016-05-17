@@ -3,8 +3,8 @@ $(document).ready(init);
 function init(){
 var baseUrl = 'https://shielded-sea-3725.herokuapp.com/data-api/';
 var collection = 'scavanaugh';
+  
 var addButton = $('#addnew').on('click', showAddDisplay); 
-
   function showAddDisplay(evt){
     $('#adddisplay').removeClass('hide');
     $('#adddisplay').addClass('show');
@@ -39,18 +39,47 @@ var addButton = $('#addnew').on('click', showAddDisplay);
 function logAjaxError( jqXHR, textStatus, errorThrown ) {
     console.log( 'AJAX error. Status:', textStatus, 'error:', errorThrown );
   }
-};//commitNewRecord();
+};//end commitNewRecord();
   
 
-  
-  var deleteButton = $('#delete').on('click', deleteRecord);//DELETE//crudDELETE
+  var deleteButton = $('#delete');
+  deleteButton.off();
+  deleteButton.on('click', deleteRecord);//DELETE//crudDELETE
   function deleteRecord(){
-    
+     $.ajax(baseUrl + collection + '/' + id, {
+    method: 'DELETE',
+    success: logDeleteResult,
+    error: logAjaxError
+  });    
   };
+     function logDeleteResult(data){
+      console.log('Data received: ', data);
+  };
+  function logAjaxError(jqXHR, textStatus, errorThrown){
+    console.log('AJAX error Status: ', textStatus, 'error: ', errorThrown);
+  };//end delete
   
-  var updateButton = $('#update').on('click', updateRecord);
-  function updateRecord(){//PUT//crudUPDATE
+  var updateButton = $('#update');
+  updateButton.off();
+  updateButton.on('click', updateRecord);
+  function updateRecord(evt){//PUT//crudUPDATE
+    evt.preventDefault();
+    var addArtist = $('#artist').val();
+    var addTitle = $('#title').val();
+    var addLabel = $('#label').val();
+    var addDate = new Date();
     
+     $.ajax(baseUrl + collection + '/' + id, {
+    method: 'PUT',
+    data: {
+              artist: addArtist,
+              title: addTitle,
+              label: addLabel,
+              date: addDate,
+          },
+    success: logUpdateResult,
+    error: logAjaxError
+  });
   };
   
   var searchInput = $('#searchInput').val();
@@ -69,7 +98,11 @@ function logAjaxError( jqXHR, textStatus, errorThrown ) {
   
   function logAjaxError(jqXHR, textStatus, errorThrown){
     console.log('AJAX error Status: ', textStatus, 'error: ', errorThrown);
-  };
+  };//end search
+    
+  function displayCatalogue(){
+    $('#catalogue').append('<tr><form><td class="addprop">' + data.artist + '</td><td class="addprop">' + data.title + '</td><td class="addprop">' + data.label + '</td><td class="addprop">' + data.date + '</td><td><button id="delete">Delete</button></td><td><button id="update">Update</button></td></form></tr>');
+  }  
 };
   
 
