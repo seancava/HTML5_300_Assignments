@@ -32,13 +32,12 @@ function init(){
   $('#listcount').append('<span id="listcount">' + recordCollectionLength + '</span>');
   
   function displayCollection(){
-    
-    
     for (var i = 0; i < localStorage.length; i++)   {
-        $('#recordListing').append('<div id="recordListing"><li>' + localStorage.rcrecord(i) + '</li></div>');
-    }
-    
+      $('#recordListing').append('<div id="recordListing"><li> Entry </li></div>');
+//        $('#recordListing').append('<div id="recordListing"><li>' + localStorage.rcrecord(i) + '</li></div>');
+    }   
   };
+  
   function commitNewRecord(evt){
     evt.preventDefault();
     var addArtist = $('#artistInput').val();
