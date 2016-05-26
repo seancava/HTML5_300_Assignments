@@ -9,13 +9,13 @@ body{
   background-color: #028090;
   min-height: 10.6em;
   width: 90%;
+  overflow: auto;
 }
 
 #adddisplay {
   margin: 0;
   padding: .5em;
   background-color: #00a896;
-  min-height: 4.6em;
   width: 90%;
 }
 .show{

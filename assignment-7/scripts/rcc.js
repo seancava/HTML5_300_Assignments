@@ -1,15 +1,19 @@
 $(document).ready(init);
 
 function init(){
-  
+  displayCollection();
 //  localStorage.aKey = "aValue";//ad new data or change existing
 //  var value = localStorage.aKey//you can read a value like this//aKey=_id
 //  localStorage.removeItem ( "aKey" );//remove an item
 //  localStorage.clear();//remove all data
 //  localStorage.length// the number of key value pairs
 //  localStorage.key(n)//access the value of the key
+  function displayCollection(){
+    for (var i = 0; i < localStorage.length; i++){
+      $('#recordListing').append('<div id="recordListing"><li>localStorage.rcrecord i</li></div>');
+    }   
+  };
   
-  displayCollection();
   
   var deleteButton = $('#delete');
   deleteButton.off();
@@ -31,15 +35,8 @@ function init(){
   
   $('#listcount').append('<span id="listcount">' + recordCollectionLength + '</span>');
   
-  function displayCollection(){
-    for (var i = 0; i < localStorage.length; i++)   {
-      $('#recordListing').append('<div id="recordListing"><li> Entry </li></div>');
-//        $('#recordListing').append('<div id="recordListing"><li>' + localStorage.rcrecord(i) + '</li></div>');
-    }   
-  };
-  
   function commitNewRecord(evt){
-    evt.preventDefault();
+    $('#addrecord').trigger("reset");
     var addArtist = $('#artistInput').val();
     var addTitle = $('#titleInput').val();
     var addLabel = $('#labelInput').val();
@@ -59,9 +56,8 @@ function init(){
     }else{
       localStorage.rcautosync = "false";
     };
+    location.reload(); 
   };//end commitNewRecord();
-  
-
   
   
   function showAddDisplay(evt){
@@ -84,7 +80,7 @@ function init(){
   };//end delete
   
   function updateRecord(evt){//PUT//crudUPDATE
-    evt.preventDefault();
+//    evt.preventDefault();
     var addArtist = $('#artist').val();
     var addTitle = $('#title').val();
     var addLabel = $('#label').val();
