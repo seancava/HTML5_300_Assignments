@@ -8,12 +8,6 @@ function init(){
 //  localStorage.clear();//remove all data
 //  localStorage.length// the number of key value pairs
 //  localStorage.key(n)//access the value of the key
-  function displayCollection(){
-    for (var i = 0; i < localStorage.length; i++){
-      $('#recordListing').append('<div id="recordListing"><li>localStorage.rcrecord i</li></div>');
-    }   
-  };
-  
   
   var deleteButton = $('#delete');
   deleteButton.off();
@@ -30,8 +24,17 @@ function init(){
   var addButton = $('#addnew').on('click', showAddDisplay);
   var hideDisplayButton = $('#hidepanel').on('click', hideAddDisplay);
   var autoSync = ('#autosync');
-  var recordCollectionLength = localStorage.length;
-  var recordCollection = localStorage;
+  var recordCollection = [];
+  var recordCollectionLength = recordCollection.length;
+  
+  localStorage.setItem(collection1, recordCollection);  
+  
+  function displayCollection(){
+    for (var i = 0; i < localStorage.length; i++){
+      $('#recordListing').append('<div id="recordListing"><li>' + localStorage.collection1[i] + '</li></div>');
+    }   
+  };
+  
   
   $('#listcount').append('<span id="listcount">' + recordCollectionLength + '</span>');
   
@@ -41,14 +44,14 @@ function init(){
     var addTitle = $('#titleInput').val();
     var addLabel = $('#labelInput').val();
     var addDate = new Date();
-    var rcRecordId = Math.random();
-
-    localStorage.setItem(rcRecordId, {
-        artist: "addArtist",
-        title: "addTitle",
-        label: "addLabel",
-        date: "addDate"
-      });
+    var addId = Math.random();
+    var recordProps = []; 
+    recordProps.push(addArtist);
+    recordProps.push(addTitle);
+    recordProps.push(addLabel);
+    recordProps.push(addDate);
+    recordProps.push(addId);
+    recordCollection.push(recordProps);
     
     if (autoSync.checked){
       syncServer;
