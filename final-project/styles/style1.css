@@ -1,0 +1,52 @@
+body{
+  background: #05668d;
+  padding: .6em;
+}
+
+#listdisplay {
+  margin: 0;
+  padding: .5em;
+  background-color: #028090;
+  min-height: 10.6em;
+  width: 90%;
+  overflow: auto;
+}
+
+#adddisplay {
+  margin: 0;
+  padding: .5em;
+  background-color: #00a896;
+  width: 90%;
+}
+.show{
+  display: inline-block;
+}
+.hide{
+  display: none;
+}
+.addprop{
+  margin: 0;
+  padding: .2em .4em .2em .4em;
+  background: #05668D;
+  font-family: sans-serif;
+  font-size: 2em;
+  color:#f0f3bd;
+  text-transform: capitalize;
+}
+thead{
+  margin: 0;
+  padding: .2em .4em .2em .4em;
+  font-family: serif;
+  font-size: 1.4em;
+  color:#000;
+  text-transform: capitalize; 
+}
+label{
+  font-family: serif;
+  font-size: 1.2em;
+  color:#000;
+  text-transform: capitalize;  
+}
+input{
+  margin: 0 1em 1em 0;
+}
