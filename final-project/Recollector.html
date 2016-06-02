@@ -2,47 +2,52 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Record Collection Catalogue</title>
+<title>Recollector</title>
 <link href="styles/style1.css" rel="stylesheet" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript" src="scripts/rcc.js"></script>
   </head>
   <body>
-<div id="listdisplay">
-	<table>
-<!-- 		<tr>
-			<td id="image">ff</td>
-			<td id="artist"></td>
-			<td id="title"></td>
-			<td id="label"></td>
-		</tr> -->
-		<thead>
+<div id="person">
+  <ul>
+    <li id="nameUser">user name</li>
+    <li id="nameCollection">collection name</li>
+    <li id="listcount">number of entries </li>
+  </ul>    
+</div>
+<!--end welcome-->
+    
+<div id="controlsdisplay">
           <button type="button" id="addnew">Add New</button>
           <form><button type="button" id="search">Search</button><input type="text" id="searchInput"></form>
           <button type="button" id="sync">Sync</button>
           <label for="autosync">Auto Sync</label>
           <input type="checkbox" id="autosync">
-          You have <span id="listcount"></span> titles
-          <button type="button" id="clearlocal">Clear Local</button>
-          
+          <button type="button" id="clearlocal">Delete Collection</button>
+    </div>
+<!--end controls-->
+    
+<div id="listdisplay">
+	<table>
+		<thead>
           <tr>
           <td>Artist</td>
           <td>Title</td>
+          <td>Year</td>  
           <td>Label</td>
+          <td>SKU</td>
+          <td>Sale</td>
+          <td>Copies</td>
           <td>Added</td>
+          <td>ID</td> 
           </tr>
 		</thead>
-
-		<tbody id="catalogue"> 
+    <tbody id="catalogue"> 
 		</tbody>
-
 	</table>
-  <div id="catloguediv">
-    <ol id="recordListing">
-    </ol>
-  </div>
 </div>
-
+<!--end listdisplay-->
+    
 <div class="show" id="adddisplay">
 	<form id="addrecord">
     <ul id="addCol1">
@@ -50,12 +55,23 @@
 		<li><input type="text" id="artistInput" /></li>
     <label for="titleInput">Title</label>
 		<li><input type="text" id="titleInput" /></li>
+    <label for="yearInput">Year</label>
+    <li><select id="yearInput">
+      </select></li>
     <label for="labelInput">Label</label>
 		<li><input type="text" id="labelInput" /></li>
+    <label for="skuInput">SKU</label>
+		<li><input type="text" id="skuInput" /></li>   
     </ul>
+    
 		<ul id="addCol2">
-    <label for="cover">Cover Art</label>
-    <li><input type="file" name="pic" accept="image/*" id="cover"></li>
+    <label for="copiesInput">Copies</label>
+		<li><input type="number" default="1" min="1" id="copiesInput" /></li>
+    <label for="saleInput">Selling</label>
+      <li><select id="saleInput">
+        <option>No</option>
+        <option>Yes</option>
+        </select></li>   
     </ul>
 		<button type="button" id="commitnew">Commit Item</button>
     <button type="button" id="hidepanel">Hide Panel</button>
