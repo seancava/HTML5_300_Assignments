@@ -65,13 +65,16 @@ function init(){
   
   function displayCollection(){    
     for(i = 0; i<=recordCollectionLength; i++){
-    key = localStorage.getItem(rcrecord(i));
-    $('#catalogue').append('<tr><td>' + key + '</td></tr>');
+    var key = localStorage.key(i);
+    var value = localStorage[key];
+      
+    $('#catalogue').append('<tr><td>' + value + '</td></tr>');
+      console.log('iterate')
     };
   };
   
   if (recordCollectionLength > 0){
-    displayCollection;
+    displayCollection();
   };
   
   function commitNewRecord(evt){
@@ -116,7 +119,7 @@ function init(){
     
     $('#addrecord').trigger("reset");
    
-    displayCollection;
+    displayCollection();
    
   };//end commitNewRecord();
   var commitButton = $('#commitnew');
