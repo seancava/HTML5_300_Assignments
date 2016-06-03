@@ -37,27 +37,31 @@ function init(){
   
   var autoSync = ('#autosync');
   
+  var start = new Date().getFullYear();
+  var end = 1910;
+    for(var year = start ; year >=end; year--){
+        $('#yearInput').append('<option>' + year + '</option>');
+      };//sets dates in year dropdown
+    
   var recordCollection = [1,2];
   
-  var recordCollectionLength = recordCollection.length;
+  var recordCollectionLength = recordCollection.length; 
   
   //localStorage.setItem("collection1", recordCollection); 
   
-  var start = new Date().getFullYear();
-  var end = 1910;
-//  var options = "";
-    for(var year = start ; year >=end; year--){
-        $('#yearInput').append('<option>' + year + '</option>');
-      };
-  localStorage.setItem("collection1", recordCollection);//is this redundant should it be record Props
-  $('#catalogue').append('<tr><td>' + localStorage.getItem("collection1") + '</td></tr>');
+  localStorage.setItem("collection1", recordCollection);//redundant should it be record Props
+  
+  function displayCollection(){
+    $('#catalogue').append('<tr><td>' + localStorage.getItem("collection1") + '</td></tr>');
+  };//end display collection
+  
   $('#listcount').append('<li id="listcount">' + recordCollectionLength + '</span>');
   
   
   
 
   
-  function commitNewRecord(evt){
+  function commitNewRecord(evt, recordCollection){
     $('#addrecord').trigger("reset");
     
     var addArtist = $('#artistInput').val();
@@ -71,6 +75,7 @@ function init(){
     var addCopies = $('#copiesInput').val();
     
     var recordProps = []; 
+    
     recordProps.push(addArtist);
     recordProps.push(addTitle);
     recordProps.push(addYear);
@@ -86,7 +91,7 @@ function init(){
     if (autoSync.checked){
       syncServer;
     };
-    init();
+    displayCollection();
     //$('#catalogue').append('<tr><td>TEST</td></tr>');
      
   };//end commitNewRecord();
@@ -132,6 +137,6 @@ function init(){
   
   
 
-   
+ displayCollection();  
 };//end init
 
