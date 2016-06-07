@@ -38,6 +38,7 @@ function init(){
   
   function clearLocal(evt){
     localStorage.clear();
+    location.reload();
   };//end clear
   var clearButton = $('#clearlocal').on('click', clearLocal);
   
@@ -67,9 +68,22 @@ function init(){
     for(i = 0; i<=recordCollectionLength; i++){
     var key = localStorage.key(i);
     var value = localStorage[key];
-      
-    $('#catalogue').append('<tr><td>' + value + '</td></tr>');
-      console.log('iterate')
+    /////need to split value on , and append value[x]
+      //value = value.toString();
+    value = JSON.stringify(value);
+    var prop = value.split(",");
+    $('#catalogue').append('<tr><td>' + prop[0] +
+                           '</td><td>' + prop[1] +
+                           '</td><td>' + prop[2] +
+                           '</td><td>' + prop[3] +
+                           '</td><td>' + prop[4] +
+                           '</td><td>' + prop[5] +
+                           '</td><td>' + prop[6] +
+                           '</td><td>' + prop[7] +
+                           '</td><td>' + prop[8] +
+                           '</td></tr>'
+                          );
+  
     };
   };
   
@@ -92,7 +106,7 @@ function init(){
     var addArtist = $('#artistInput').val();
     var addTitle = $('#titleInput').val();
     var addLabel = $('#labelInput').val();
-    var addId = ((Math.random()) * 1000000000000000000);
+    var addId = ((Math.random()) * (Math.pow(10, 17)));
     var addYear = $('#yearInput').val();
     var addSku = $('#skuInput').val();
     var addSelling = $('#saleInput').val();
@@ -110,7 +124,7 @@ function init(){
     recordProps.push(addId);
     recordProps.push(addDate);
     
-    localStorage.setItem("rcRecord" + recordProps[7], recordProps);
+    localStorage.setItem("rcRecord", recordProps);
     //console.log(recordProps[7]);
     
     if (autoSync.checked){
