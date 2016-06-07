@@ -70,22 +70,27 @@ function init(){
     var value = localStorage[key];
     /////need to split value on , and append value[x]
       //value = value.toString();
-    value = JSON.stringify(value);
-    var prop = value.split(",");
+    //value = JSON.stringify(value);
+    value = "artist, title, year, label, sku, sale, copies, added, id"
+    var prop = value.split(',');
     $('#catalogue').append('<tr><td>' + prop[0] +
-                           '</td><td>' + prop[1] +
-                           '</td><td>' + prop[2] +
-                           '</td><td>' + prop[3] +
-                           '</td><td>' + prop[4] +
-                           '</td><td>' + prop[5] +
-                           '</td><td>' + prop[6] +
-                           '</td><td>' + prop[7] +
-                           '</td><td>' + prop[8] +
-                           '</td></tr>'
+                          '</td><td>' + prop[1] +
+                          '</td><td>' + prop[2] +
+                          '</td><td>' + prop[3] +
+                          '</td><td>' + prop[4] +
+                          '</td><td>' + prop[5] +
+                          '</td><td>' + prop[6] +
+                          '</td><td>' + prop[7] +
+                          '</td><td>' + prop[8] +
+                          '</td</tr>'
                           );
-  
+      function buildDisplay(){
+        for(var i=0; i <= prop.length; i++){
+          $('#catalogue').append('<tr><td>' + prop[i] + '</td></tr>');
+        }
+      };
     };
-  };
+  };//end display collection
   
   if (recordCollectionLength > 0){
     displayCollection();
@@ -121,8 +126,8 @@ function init(){
     recordProps.push(addSku);
     recordProps.push(addSelling);
     recordProps.push(addCopies);
-    recordProps.push(addId);
     recordProps.push(addDate);
+    recordProps.push(addId);
     
     localStorage.setItem("rcRecord", recordProps);
     //console.log(recordProps[7]);
