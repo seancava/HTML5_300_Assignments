@@ -65,13 +65,14 @@ function init(){
   var recordCollectionLength = localStorage.length;
   
   function displayCollection(){    
-    for(i = 0; i<=recordCollectionLength; i++){
+    for(i = 0; i<recordCollectionLength; i++){
     var key = localStorage.key(i);
     var value = localStorage[key];
     /////need to split value on , and append value[x]
-      //value = value.toString();
-    //value = JSON.stringify(value);
-    value = "artist, title, year, label, sku, sale, copies, added, id"
+    //valueString = value.toString();
+    value = JSON.stringify(value);
+    //valueS = "artist, title, year, label, sku, sale, copies, added, id"
+      console.log(value);
     var prop = value.split(',');
     $('#catalogue').append('<tr><td>' + prop[0] +
                           '</td><td>' + prop[1] +
