@@ -10,29 +10,43 @@ body{
   background: -moz-linear-gradient(#66ffff, #ffffff, #66ffff); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#66ffff, #ffffff, #66ffff); /* Standard syntax */
   padding: 0;
+  margin: 0.6em;
 }
 
 #listdisplay {
   padding: 0;
-  margin: 0 0 0.8em 0;
+  margin: 0 0 0.2em 0;
   min-height: 5.6em;
   width: 100%;
   overflow: auto;
   font-family: serif;
   font-size: 4em;
-  background-color: rgba(102, 255, 255, 0.5);
+  background-color: rgba(102, 255, 255, 0.7);
   color: rgba(0, 0, 0, 0.8);
   border-color: rgba(255, 52, 52, 0.5);
   border-width: 0 0 6px 0; 
-  border-radius: 5%;
+  border-radius: 22px;
   
+  text-transform: capitalize;
+}
+#listdisplay table{
+  margin: -52px auto 0 auto;
 }
 
 #adddisplay {
   margin: 0;
-  padding: .5em;
-  background-color: #00a896;
+  padding: 0;
   width: 100%;
+  height: auto;
+  font-family: serif;
+  font-size: 4em;
+  background-color: rgba(102, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.8);
+  border-color: red;
+  border-bottom-width: 6px ; 
+  border-radius: 22px;
+  overflow: hidden;
+  text-align: center;
 }
 .show{
   display: inline-block;
@@ -57,32 +71,22 @@ thead{
   color:#000;
   text-transform: capitalize; 
 }
-label{
-  font-family: serif;
-  font-size: 1.2em;
-  color:#000;
-  text-transform: capitalize;  
-}
+
 input{
   margin: 0 1em 1em 0;
 }
 #logo{
-  font-family: sans-serif;
+  font-family: 'Righteous', sans-serif;
   color: rgba(255, 52, 52, 1);
   font-size: 18vw;
+  text-align: center;
 }
-#person ul li{
-  list-style: none;
-  font-weight: bold; 
-  font-family: serif;
-  font-size: 1.2em;
-  color: rgba(0, 0, 0, 0.8);
-}
+
 #addnew{
   width: 100%;
   font-family: serif;
   font-size: 4em;
-  background-color: rgba(102, 255, 255, 0.8);
+  background-color: rgba(102, 255, 255, 0.7);
   color: rgba(0, 0, 0, 0.8);
   border-color: rgba(255, 52, 52, 0.5);
   border-width: 0 0 6px 0; 
@@ -90,16 +94,27 @@ input{
   line-height: 78%;
   margin: 0 0 0.8em 0;
   padding: 10px;
+  cursor: pointer;
+}
+#controlsdisplay{
+  width: 100%;
+  color: rgba(0, 0, 0, 1);
+  padding:0;
+  margin-top: -74px;
+  background-color: rgba(255, 52, 52, 0.4);
 }
 #controlsdisplay ul li{
   display:inline;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 #controlsdisplay ul li label{
   font-family: sans-serif;
   color: rgba(0, 0, 0, 1);
   font-size: 16px;
   margin: 0 0 0 12px;
+  
 }
 #autosync{
   margin: 0 0 0 -10px;
@@ -122,3 +137,55 @@ thead tr td{
   font-size: .3em;
   text-align: center;
 }
+#listcount{
+    font-family: sans-serif;
+  color: rgba(0, 0, 0, 1);
+  font-size: 16px;
+  margin: 0;
+}
+
+#adddisplay label{
+  font-family: serif;
+  font-size: 0.6em;
+  color: rgba(255, 52, 52, 1);
+  margin: 0;
+  padding: 0;
+}
+#adddisplay input{
+    width: 100%;
+  font-family: serif;
+  font-size: .4em;
+  color: rgba(0, 0, 0, 1);
+  margin: 0 0 24px 0;
+  padding: 0 6px 0 16px 0;
+  font-family: sans-serif;
+  color: rgba(0, 0, 0, 1);
+  text-transform: capitalize;
+}
+#adddisplay select{
+  width: 100%;
+  font-family: serif;
+  font-size: 0.5em;
+  color: rgba(0, 0, 0, 1);
+  margin: 0 0 26px 0;
+  padding: 0;
+  font-family: serif;
+  font-size: .4em;
+  color: rgba(0, 0, 0, 1);
+  font-family: sans-serif;
+}
+.addcol{
+  line-height: 28px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+}
+#commitdisplay{
+  width: 100%;
+  color: rgba(0, 0, 0, 1);
+  padding:0 12px 0 28px;
+  background-color: rgba(255, 52, 52, 0.4);
+  text-align: left;
+}
+
+

@@ -2,6 +2,7 @@ $(document).ready(init);
 
 function init(){
   var recordCollectionLength = localStorage.length;
+  
   $('#listcount').append('You have ' + recordCollectionLength + ' SKU in this collection');
   var start = new Date().getFullYear();
   var end = 1910;
@@ -131,14 +132,15 @@ function init(){
     recordProps.push(addDate);
     recordProps.push(addId);
     
-    localStorage.setItem("rcRecord", recordProps);
+    localStorage.setItem("rcRecord" + addId, recordProps);
     //console.log(recordProps[7]);
     
     if (autoSync.checked){
       syncServer;
     };
     
-    $('#addrecord').trigger("reset");
+    //$('#addrecord').trigger("reset");
+    location.reload();
    
     displayCollection();
    
@@ -151,7 +153,7 @@ function init(){
   function logListResult(data){
       alert('Data received');
   };
-   
  
+ displayCollection;
 };//end init
 
