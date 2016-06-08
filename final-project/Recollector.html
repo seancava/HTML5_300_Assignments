@@ -2,32 +2,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Recollector</title>
+<title>reCollector: Record Collection Cataloguer</title>
 <link href="styles/style1.css" rel="stylesheet" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript" src="scripts/rcc.js"></script>
+<link href="styles/style1.css" type="text/css" rel="stylesheet" media="screen and (min-width:1px) and (max-width:799px)" />
+<link href="styles/style1.css" type="text/css" rel="stylesheet" media="screen and (min-width:800px) and (max-width:2048px)" />
   </head>
   <body>
+<div id="logo">reCollector</div>    
 <div id="person">
   <ul>
+<!--
     <li id="nameUser">user name</li>
     <li id="nameCollection">collection name</li>
-    <li id="listcount">number of entries </li>
-  </ul>    
+-->
+    <li id="listcount"></li>
+  </ul>
+  
+     <button type="button" id="addnew">Add New</button>
 </div>
 <!--end welcome-->
     
-<div id="controlsdisplay">
-          <button type="button" id="addnew">Add New</button>
-          <form><button type="button" id="search">Search</button><input type="text" id="searchInput"></form>
-          <button type="button" id="sync">Sync</button>
-          <label for="autosync">Auto Sync</label>
-          <input type="checkbox" id="autosync">
-          <button type="button" id="clearlocal">Delete Collection</button>
-    </div>
-<!--end controls-->
-    
 <div id="listdisplay">
+  <div id="controlsdisplay">
+          <ul>
+            <li><button type="button" id="search">Search</button><input type="text" id="searchInput"></li>
+            <li><label for="autosync">Auto Sync</label>
+          <input type="checkbox" id="autosync"></li>
+            <li><button type="button" id="sync">Sync Server</button></li>
+          <li><button type="button" id="clearlocal">Delete Collection</button>
+          </ul>
+    </div>
 	<table>
 		<thead>
           <tr>

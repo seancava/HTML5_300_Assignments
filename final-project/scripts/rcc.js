@@ -1,8 +1,8 @@
 $(document).ready(init);
 
 function init(){
-  
-  $('#listcount').append('<li id="listcount">' + recordCollectionLength + '</span>');
+  var recordCollectionLength = localStorage.length;
+  $('#listcount').append('You have ' + recordCollectionLength + ' SKU in this collection');
   var start = new Date().getFullYear();
   var end = 1910;
   for(var year = start ; year >=end; year--){
@@ -11,7 +11,7 @@ function init(){
   
   
   function deleteRecord(evt){
-    localStorage.removeItem ( "record" );
+    localStorage.removeItem ("record");
   };//end delete
   var deleteButton = $('delete');
   deleteButton.off();
@@ -62,17 +62,13 @@ function init(){
   };//end sync  
   var autoSync = ('#autosync');
     
-  var recordCollectionLength = localStorage.length;
+  
   
   function displayCollection(){    
     for(i = 0; i<recordCollectionLength; i++){
     var key = localStorage.key(i);
     var value = localStorage[key];
-    /////need to split value on , and append value[x]
-    //valueString = value.toString();
     value = JSON.stringify(value);
-    //valueS = "artist, title, year, label, sku, sale, copies, added, id"
-      console.log(value);
     var prop = value.split(',');
     $('#catalogue').append('<tr><td>' + prop[0] +
                           '</td><td>' + prop[1] +
@@ -85,12 +81,17 @@ function init(){
                           '</td><td>' + prop[8] +
                           '</td</tr>'
                           );
-      function buildDisplay(){
-        for(var i=0; i <= prop.length; i++){
-          $('#catalogue').append('<tr><td>' + prop[i] + '</td></tr>');
-        }
-      };
+//        function buildDisplay(){
+//          $('#catalogue').append('<tr>');
+//        for(var i=0; i <=prop.length; i++){
+//          $('#catalogue').append('<td>' + prop[i] + 
+//                                '</td>');
+//        }
+//        $('#catalogue').append('</tr>');
+//        };  //buildDisplay;
+//        buildDisplay;
     };
+
   };//end display collection
   
   if (recordCollectionLength > 0){
