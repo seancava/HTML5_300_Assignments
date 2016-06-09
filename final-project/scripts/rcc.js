@@ -29,13 +29,16 @@ function init(){
   function updateRecord(evt){
     $('#adddisplay').removeClass();
     $('#adddisplay').addClass('show');
-    var id = $('#idDrop').find(':selected').text();
+    //var thisId = "test";
+    var thisId = $('#idDrop option:selected').text();
+    //var id = $('#idDrop option:selected').val();
 //    value = JSON.stringify(value);
 //    value = value.slice(1, -1)  
 //    var prop = value.split(',');
-    //console.log(id);
-    var storageId = "rcRecord" + id;
+  
+    var storageId = "rcRecord" + thisId;
     var record = localStorage.getItem(storageId);
+    //console.log(record);
     var value = JSON.stringify(record);
     value = value.slice(1, -1);
     var prop = value.split(',');
@@ -47,9 +50,10 @@ function init(){
     var sku = $('#skuInput').val(prop[4]);
     var copies = $('#copiesInput').val(prop[5]);
     var selling = $('#sellingInput').val(prop[6]);
-    var id = $('#idDrop').val(prop[8]);
+    var id = $('#idInput').val(thisId);
+    //var id = $('#idDrop').val(prop[8]);
     
-    localStorage.removeItem(storageId);
+    localStorage.removeItem('rcRecord' + thisId);
     commitNewRecord;
     
 //    var commitButton = $('#commitnew');
