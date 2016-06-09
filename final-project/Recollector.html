@@ -14,7 +14,7 @@
   <body>
 <div id="logo">reCollector</div>    
 <div id="person">  
-     <button type="button" id="addnew">Add New</button>
+  <a href="#adddisplay"><button type="button" id="addnew">Add New</button></a>
 </div>
 <!--end welcome-->
     
@@ -30,10 +30,15 @@
             <li><label for="autosync">Auto Sync</label>
           <input type="checkbox" id="autosync"></li>
             <li><button type="button" id="sync" class="controlbutton">Sync Server</button></li>
-          <li><button type="button" id="clearlocal">Delete Collection</button>
+            <li><select id="idInput">
+              <option>Select Id...</option></select>
+              <button type="button" id="updatebutton">Update Record</button>
+              <button type="button" id="deletebutton">Delete Record</button><br/></li>
+            <li><button type="button" id="clearlocal">Delete Collection</button></li>
           </ul>
     </div>
-	<table>
+<!--	<div id="listcontainer">-->
+  <table>
 		<thead>
           <tr>
           <td>Artist</td>
@@ -44,12 +49,13 @@
           <td>Sale</td>
           <td>Copies</td>
           <td>Added</td>
-          <td>ID</td> 
+          <td>ID</td>   
           </tr>
 		</thead>
     <tbody id="catalogue"> 
 		</tbody>
 	</table>
+<!--    </div>-->
 </div>
 <!--end listdisplay-->
     
@@ -73,7 +79,9 @@
         <label for="titleInput">Title</label><br/>
 		<input type="text" id="titleInput" /><br/>
         <label for="skuInput">SKU</label><br/>
-		<input type="text" id="skuInput" />
+		<input type="text" id="skuInput" /><br/>
+            <button type="button" id="commitnew">Commit Item</button>
+    <button type="button" id="hidepanel">Hide Panel</button>
    
       </div>
     
@@ -85,8 +93,7 @@
 	</div>
     </form>
     <div id="commitdisplay">
-    <button type="button" id="commitnew">Commit Item</button>
-    <button type="button" id="hidepanel">Hide Panel</button>
+
   </div>
 </div>
 

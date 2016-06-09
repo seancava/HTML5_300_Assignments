@@ -1,9 +1,13 @@
 $(document).ready(init);
 
 function init(){
+  var addId = ((Math.random()) * (Math.pow(10, 17)));
   var recordCollectionLength = localStorage.length;
+  var idInput = $('#idInput');
   
+
   $('#listcount').append('You have ' + recordCollectionLength + ' SKU in this collection');
+  
   var start = new Date().getFullYear();
   var end = 1910;
   for(var year = start ; year >=end; year--){
@@ -12,21 +16,57 @@ function init(){
   
   
   function deleteRecord(evt){
-    localStorage.removeItem ("record");
+    var deleteInput = $('#idInput').val();
+    var remove = "rcRecord" + deleteInput;
+    console.log(remove);
+    localStorage.removeItem (remove);
+    location.reload();
   };//end delete
-  var deleteButton = $('delete');
+//  function getDelete(evt){
+//    var deleteButton = evt.trigger;
+//  };
+  //get id attrib of evt
+  
+  var deleteButton = $('#deletebutton');
   deleteButton.off();
   deleteButton.on('click', deleteRecord);
   
   
-  function updateRecord(evt){//PUT//crudUPDATE
+  
+  function updateRecord(evt){
+    $('#adddisplay').removeClass();
+    $('#adddisplay').addClass('show');
+    var id = "rcRecord" + idInput.val();
+    var record = localStorage.getItem(id);
 //    evt.preventDefault();
-    var addArtist = $('#artist').val();
-    var addTitle = $('#title').val();
-    var addLabel = $('#label').val();
-    var addDate = new Date();
+//    for(i = 0; i<recordCollectionLength; i++){
+//    var key = localStorage.key(i);
+//    var value = localStorage[key];
+    var prop = JSON.stringify(record);
+    var artist = $('#artistInput').val();
+    var title = $('#titleInput');
+    var year = $('#yearInput');
+    var label = $('#labelInput');
+    var sku = $('#skuInput');
+    var copies = $('#copiesInput');
+    var selling = $('#sellingInput');
+    
+//    value = value.slice(1, -1)  
+//    var prop = value.split(',');
+//    $('#catalogue').append('<tr><td>' + prop[0] +
+//                          '</td><td>' + prop[1] +
+//                          '</td><td>' + prop[2] +
+//                          '</td><td>' + prop[3] +
+//                          '</td><td>' + prop[4] +
+//                          '</td><td>' + prop[5] +
+//                          '</td><td>' + prop[6] +
+//                          '</td><td>' + prop[7] +
+//                          '</td><td>' + prop[8] +
+//                          '</td></tr>'
+//                          );
+   
   };//end update
-  var updateButton = $('#update');
+  var updateButton = $('#updatebutton');
   updateButton.off();
   updateButton.on('click', updateRecord);
 
@@ -70,6 +110,7 @@ function init(){
     var key = localStorage.key(i);
     var value = localStorage[key];
     value = JSON.stringify(value);
+    value = value.slice(1, -1)  
     var prop = value.split(',');
     $('#catalogue').append('<tr><td>' + prop[0] +
                           '</td><td>' + prop[1] +
@@ -80,8 +121,11 @@ function init(){
                           '</td><td>' + prop[6] +
                           '</td><td>' + prop[7] +
                           '</td><td>' + prop[8] +
-                          '</td</tr>'
+                          '</td></tr>'
                           );
+      
+      $('#idInput').append('<option>' + prop[8] + '</option>');
+    };
 //        function buildDisplay(){
 //          $('#catalogue').append('<tr>');
 //        for(var i=0; i <=prop.length; i++){
@@ -91,7 +135,7 @@ function init(){
 //        $('#catalogue').append('</tr>');
 //        };  //buildDisplay;
 //        buildDisplay;
-    };
+    //};
 
   };//end display collection
   
@@ -114,7 +158,7 @@ function init(){
     var addArtist = $('#artistInput').val();
     var addTitle = $('#titleInput').val();
     var addLabel = $('#labelInput').val();
-    var addId = ((Math.random()) * (Math.pow(10, 17)));
+    
     var addYear = $('#yearInput').val();
     var addSku = $('#skuInput').val();
     var addSelling = $('#saleInput').val();
