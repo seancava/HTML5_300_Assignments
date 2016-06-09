@@ -13,9 +13,8 @@ function init(){
   
   
   function deleteRecord(evt){
-    var deleteInput = $('#idInput').val();
-    var remove = "rcRecord" + deleteInput;
-    console.log(remove);
+    var thisId = $('#idDrop option:selected').text();
+    var remove = "rcRecord" + thisId;
     localStorage.removeItem (remove);
     location.reload();
   };//end delete
