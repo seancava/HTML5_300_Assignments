@@ -149,8 +149,6 @@ function init(){
     
     location.reload();
    
-//    displayCollection();
-   
   };//end commitNewRecord();
   var commitButton = $('#commitnew');
   commitButton.off();
