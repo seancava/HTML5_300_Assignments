@@ -9,7 +9,7 @@ function init(){
   var end = 1910;
   for(var year = start ; year >=end; year--){
       $('#yearInput').append('<option>' + year + '</option>');
-    };//sets dates in year dropdown
+    };
   
   
   function deleteRecord(evt){
@@ -17,27 +17,18 @@ function init(){
     var remove = "rcRecord" + thisId;
     localStorage.removeItem (remove);
     location.reload();
-  };//end delete
-  
+  };  
   var deleteButton = $('#deletebutton');
   deleteButton.off();
   deleteButton.on('click', deleteRecord);
   
   
-  
   function updateRecord(evt){
     $('#adddisplay').removeClass();
     $('#adddisplay').addClass('show');
-    //var thisId = "test";
     var thisId = $('#idDrop option:selected').text();
-    //var id = $('#idDrop option:selected').val();
-//    value = JSON.stringify(value);
-//    value = value.slice(1, -1)  
-//    var prop = value.split(',');
-  
     var storageId = "rcRecord" + thisId;
     var record = localStorage.getItem(storageId);
-    //console.log(record);
     var value = JSON.stringify(record);
     value = value.slice(1, -1);
     var prop = value.split(',');
@@ -50,15 +41,9 @@ function init(){
     var copies = $('#copiesInput').val(prop[5]);
     var selling = $('#sellingInput').val(prop[6]);
     var id = $('#idInput').val(thisId);
-    //var id = $('#idDrop').val(prop[8]);
     
     localStorage.removeItem('rcRecord' + thisId);
     commitNewRecord;
-    
-//    var commitButton = $('#commitnew');
-//    commitButton.off();
-//    commitButton.on('click', commitNewRecord);
-    
   };//end update
   var updateButton = $('#updatebutton');
   updateButton.off();
@@ -99,7 +84,6 @@ function init(){
   };//end sync  
   var autoSync = ('#autosync');
     
-  
   
   function displayCollection(){    
     for(i = 0; i<recordCollectionLength; i++){
@@ -158,16 +142,14 @@ function init(){
     recordProps.push(addId);
     
     localStorage.setItem("rcRecord" + addId, recordProps);
-    //console.log(recordProps[7]);
     
     if (autoSync.checked){
       syncServer;
     };
     
-    //$('#addrecord').trigger("reset");
     location.reload();
    
-    displayCollection();
+//    displayCollection();
    
   };//end commitNewRecord();
   var commitButton = $('#commitnew');
